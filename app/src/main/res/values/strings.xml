@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">P2-ScoreKeeperApp</string>
+    <string name="reset_score">Reset</string>
+    <string name="points_sharapova">0</string>
+    <string name="points_halep">0</string>
+    <string name="games_sharapova">0</string>
+    <string name="games_halep">0</string>
+    <string name="sets_sharapova">0</string>
+    <string name="sets_halep">0</string>
+    <string name="points_sharapova_label">Points</string>
+    <string name="points_halep_label">Points</string>
+    <string name="games_sharapova_label">Games</string>
+    <string name="games_halep_label">Games</string>
+    <string name="sets_sharapova_label">Sets</string>
+    <string name="sets_halep_label">Sets</string>
+    <string name="advantage">ADV</string>
+    <string name="name_player_a">Type Name</string>
+    <string name="surname_player_a">Type Surname</string>
+    <string name="Plus">+</string>
+    <string name="toast">The game is over! Press Reset to start a new match</string>
+    <string name="photo_player_a">photo_player_A</string>
+    <string name="photo_player_b">photo_player_B</string>
+    <string name="foot_fault">Foot fault</string>
+    <string name="service_fault">Service fault</string>
+    <string name="zero">0</string>
+    <string name="winner_b_won">%s %s won the match!</string>
+    <string name="winner_a_won">%s %s won the match!</string>
+</resources>
