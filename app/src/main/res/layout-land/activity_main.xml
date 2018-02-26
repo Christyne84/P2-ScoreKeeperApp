@@ -78,6 +78,7 @@
 
                     <TextView
                         android:id="@+id/points_player_a"
+                        style="@style/PointsTeamAandB"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -102,7 +103,6 @@
 
                             <TextView
                                 style="@style/TextViewWeight"
-                                android:layout_height="match_parent"
                                 android:gravity="start"
                                 android:text="@string/games_sharapova_label"
                                 android:textColor="@color/white" />
@@ -201,17 +201,13 @@
                     android:background="@color/colorAccentLight">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dim8"
-                        android:layout_marginTop="@dimen/dim8"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginStart="@dimen/dim8">
+                        style="@style/TextViewWeight"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim8">
 
                             <TextView
                                 android:id="@+id/games_player_b"
@@ -257,7 +253,7 @@
                         android:layout_marginEnd="@dimen/activity_vertical_margin"
                         android:layout_marginRight="@dimen/activity_vertical_margin"
                         android:layout_marginStart="@dimen/dim8"
-                        android:layout_marginLeft="@dimen/dim8"
+                        android:layout_marginLeft="@dimen/activity_vertical_margin"
                         android:layout_marginTop="@dimen/dim8"
                         android:layout_weight="1"
                         android:background="@color/white"
@@ -304,13 +300,9 @@
                         android:text="@string/service_fault"
                         android:textColor="@color/white"
                         android:gravity="start"
-                        android:layout_marginLeft="@dimen/activity_vertical_margin"
-                        android:paddingLeft="@dimen/dim8"
-                        android:paddingRight="@dimen/dim8"
+                        android:layout_marginLeft="@dimen/dim8"
                         android:layout_marginRight="@dimen/dim8"
-                        android:layout_marginStart="@dimen/activity_vertical_margin"
-                        android:paddingStart="@dimen/dim8"
-                        android:layout_marginEnd="@dimen/dim8" />
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -338,21 +330,21 @@
                         style="@style/PlusButton"
                         android:layout_gravity="end"
                         android:onClick="addOneFootFaultTeamA"
-                        android:layout_marginRight="@dimen/activity_vertical_margin"
+                        android:layout_marginRight="@dimen/dim30"
                         android:layout_marginEnd="@dimen/activity_vertical_margin" />
 
                     <TextView
                         android:id="@+id/service_fault_player_a"
                         style="@style/TextViewWeight"
                         android:background="@color/white"
-                        android:layout_marginRight="@dimen/activity_vertical_margin"
                         android:text="@string/zero"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/activity_vertical_margin" />
+                        android:layout_gravity="center"/>
                     <Button
                         style="@style/PlusButton"
                         android:layout_gravity="end"
-                        android:onClick="addOneServiceFaultTeamA" />
+                        android:layout_marginLeft="@dimen/activity_vertical_margin"
+                        android:onClick="addOneServiceFaultTeamA"
+                        android:layout_marginStart="@dimen/activity_vertical_margin" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -372,7 +364,9 @@
                         style="@style/TextViewWeight"
                         android:text="@string/foot_fault"
                         android:textColor="@color/white"
-                        android:gravity="start"/>
+                        android:gravity="start"
+                        android:layout_marginLeft="@dimen/dim8"
+                        android:layout_marginStart="@dimen/dim8"/>
 
                     <TextView
                         style="@style/TextViewWeight"
