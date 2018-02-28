@@ -163,6 +163,10 @@ public class MainActivity extends AppCompatActivity {
             pointsTeamA = 0;
             pointsTeamB = 0;
         }
+        footFaultTeamA = 0;
+        serviceFaultTeamA = 0;
+        displayFootFaultTeamA(footFaultTeamA);
+        displayServiceFaultTeamA(serviceFaultTeamA);
         displayScore();
     }
 
@@ -187,6 +191,10 @@ public class MainActivity extends AppCompatActivity {
             pointsTeamA = 0;
             pointsTeamB = 0;
         }
+        footFaultTeamB = 0;
+        serviceFaultTeamB = 0;
+        displayFootFaultTeamB(footFaultTeamB);
+        displayServiceFaultTeamB(serviceFaultTeamB);
         displayScore();
     }
 
@@ -262,7 +270,7 @@ public class MainActivity extends AppCompatActivity {
         setsTeamB = setsTeamB + 1;
         displaySetsForTeamB(setsTeamB);
 
-        if ( setsTeamA == 2 || setsTeamB == 2){
+        if (setsTeamA == 2 || setsTeamB == 2){
             gameFinished = true;
 
             //the winner is: ""
@@ -276,25 +284,114 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Increases the number of foot faults for team A/player A by 1.
+     * If there are two consecutive faults (foot or service fault) it decreases the points for
+     * team A/player A by 1 (from 15 to 0, from 30 to 15, from 40 to 30)
      */
     public void addOneFootFaultTeamA(View view) {
         footFaultTeamA ++;
         displayFootFaultTeamA(footFaultTeamA);
+
+        if (footFaultTeamA + serviceFaultTeamA >= 2){
+            if (pointsTeamA >= 1) {
+                pointsTeamA = pointsTeamA - 1;
+                footFaultTeamA = 0;
+                serviceFaultTeamA = 0;
+                displayFootFaultTeamA(footFaultTeamA);
+                displayServiceFaultTeamA(serviceFaultTeamA);
+                displayScore();
+            }
+            else {
+                pointsTeamA = 0;
+                footFaultTeamA = 0;
+                serviceFaultTeamA = 0;
+                displayFootFaultTeamA(footFaultTeamA);
+                displayServiceFaultTeamA(serviceFaultTeamA);
+            }
+        }
     }
 
+    /**
+     * Increases the number of service faults for team A/player A by 1.
+     * If there are two consecutive faults (foot or service fault) it decreases the points for
+     * team A/player A by 1 (from 15 to 0, from 30 to 15, from 40 to 30)
+     */
     public void addOneServiceFaultTeamA(View view) {
         serviceFaultTeamA ++;
         displayServiceFaultTeamA(serviceFaultTeamA);
+
+        if (footFaultTeamA + serviceFaultTeamA >= 2){
+            if (pointsTeamA >= 1) {
+                pointsTeamA = pointsTeamA - 1;
+                footFaultTeamA = 0;
+                serviceFaultTeamA = 0;
+                displayFootFaultTeamA(footFaultTeamA);
+                displayServiceFaultTeamA(serviceFaultTeamA);
+                displayScore();
+            }
+            else {
+                pointsTeamA = 0;
+                footFaultTeamA = 0;
+                serviceFaultTeamA = 0;
+                displayFootFaultTeamA(footFaultTeamA);
+                displayServiceFaultTeamA(serviceFaultTeamA);
+            }
+        }
     }
 
+    /**
+     * Increases the number of foot faults for team B/player B by 1.
+     * If there are two consecutive faults (foot or service fault) it decreases the points for
+     * team B/player B by 1 (from 15 to 0, from 30 to 15, from 40 to 30)
+     */
     public void addOneFootFaultTeamB(View view) {
         footFaultTeamB ++;
         displayFootFaultTeamB(footFaultTeamB);
+
+        if (footFaultTeamB + serviceFaultTeamB >= 2){
+            if (pointsTeamB >= 1) {
+                pointsTeamB = pointsTeamB - 1;
+                footFaultTeamB = 0;
+                serviceFaultTeamB = 0;
+                displayFootFaultTeamB(footFaultTeamB);
+                displayServiceFaultTeamB(serviceFaultTeamB);
+                displayScore();
+            }
+            else {
+                pointsTeamB = 0;
+                footFaultTeamB = 0;
+                serviceFaultTeamB = 0;
+                displayFootFaultTeamB(footFaultTeamB);
+                displayServiceFaultTeamB(serviceFaultTeamB);
+            }
+        }
     }
 
+    /**
+     * Increases the number of service faults for team B/player B by 1.
+     * If there are two consecutive faults (foot or service fault) it decreases the points for
+     * team B/player B by 1 (from 15 to 0, from 30 to 15, from 40 to 30)
+     */
     public void addOneServiceFaultTeamB(View view) {
         serviceFaultTeamB ++;
         displayServiceFaultTeamB(serviceFaultTeamB);
+
+        if (footFaultTeamB + serviceFaultTeamB >= 2){
+            if (pointsTeamB >= 1) {
+                pointsTeamB = pointsTeamB - 1;
+                footFaultTeamB = 0;
+                serviceFaultTeamB = 0;
+                displayFootFaultTeamB(footFaultTeamB);
+                displayServiceFaultTeamB(serviceFaultTeamB);
+                displayScore();
+            }
+            else {
+                pointsTeamB = 0;
+                footFaultTeamB = 0;
+                serviceFaultTeamB = 0;
+                displayFootFaultTeamB(footFaultTeamB);
+                displayServiceFaultTeamB(serviceFaultTeamB);
+            }
+        }
     }
 
     /**
@@ -428,7 +525,6 @@ public class MainActivity extends AppCompatActivity {
      * Displays the name of the winner at the end of the match.
      */
     private void displayWinner() {
-
         //Sets the default names "Player A" and "Player B" in the EditTexts
         EditText namePlayerA = findViewById(R.id.editNamePlayerA);
         String name_a = namePlayerA.getText().toString();
